@@ -4,10 +4,11 @@ import java.io.*;
 
 public class DictionaryClass extends HashMap<String, ArrayList<String>> {
 
-    private static String SEPARATOR = "**********";
-    ArrayList<String> legalFirstWords = new ArrayList<String>();
+    public static String SEPARATOR = "**********";
+    public ArrayList<String> legalFirstWords;
 
     public DictionaryClass(String fileName) {
+        legalFirstWords = new ArrayList<String>();
         try {
             BufferedReader file = new BufferedReader(new FileReader(fileName));
             String line = null;
@@ -35,16 +36,6 @@ public class DictionaryClass extends HashMap<String, ArrayList<String>> {
             System.out.println("Error: Cannot open file for reading");
         } catch (IOException e) {
             System.out.println("Error: Cannot read from file");
-        }
-
-        String currentWord = legalFirstWords.get((int)(Math.random()*legalFirstWords.size()));
-
-        while (!currentWord.equals(SEPARATOR)) {
-            System.out.print(currentWord + " ");
-
-            ArrayList<String> value = this.get(currentWord);
-
-            currentWord = value.get((int) (Math.random() * value.size()));
         }
     }
 }

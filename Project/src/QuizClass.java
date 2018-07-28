@@ -1,41 +1,39 @@
-import java.util.List;
+import java.util.ArrayList;
 
-public class QuizClass {
-    Question questOne = new Question();
-    Question questTwo = new Question();
-    Question questThree = new Question();
-    Question questFour = new Question();
-    Question questFive = new Question();
-    Question questSix = new Question();
-    Question questSeven = new Question();
-    Question questEight = new Question();
-    Question questNine = new Question();
-    Question questTen = new Question();
-    Question []allQuestions = {questOne, questTwo, questThree, questFour, questFive, questSix, questSeven, questEight, questNine, questTen};
+public class QuizClass{
 
-//    DictionaryClass title = new DictionaryClass();
-//    DictionaryClass questions = new DictionaryClass();
-//    DictionaryClass answer = new DictionaryClass();
-//    DictionaryClass result = new DictionaryClass();
-//
-//
-//    public QuizClass() {
-//    }
-//
-//    public String createSentence(){
-//        String tempSentence;
-//
-//        while (!currentWord.equals(separator)) {
-//            System.out.print(currentWord + " ");
-//
-//            ArrayList<String> value = dict.get(currentWord);
-//
-//            currentWord = value.get((int) (Math.random() * value.size()));
-//        }
+    private DictionaryClass titlesDict;
+    private DictionaryClass questionsDict;
+    private DictionaryClass answersDict;
+    private DictionaryClass resultsDict;
+    public String quizTitle;
+    public QuestionClass[] quizQuestions;
+    public String[] quizResults;
 
-//    }
+    public QuizClass() {
+        titlesDict = new DictionaryClass("titles.text");
+        questionsDict = new DictionaryClass("questions.txt");
+        answersDict = new DictionaryClass("answers.txt");
+        resultsDict = new DictionaryClass("results.txt");
 
+        quizTitle = generateSentenceFrom(titlesDict);
+        quizQuestions = new QuestionClass[10];
+        for(int i=0; i<10; i++) {
+            quizQuestions[i].question = generateSentenceFrom(questionsDict);
+            for(int k=0; k<4; k++) {
+                quizQuestions[i].answers[k] = generateSentenceFrom(answersDict);
+            }
+        }
+    }
+
+    public String generateSentenceFrom(DictionaryClass dict) {
+        String newSentence = null;
+        String currentWord = dict.legalFirstWords.get((int)(Math.random()*dict.legalFirstWords.size()));
+        while (!currentWord.equals(dict.SEPARATOR)) {
+            newSentence += currentWord + " ";
+            ArrayList<String> value = dict.get(currentWord);
+            currentWord = value.get((int) (Math.random() * value.size()));
+        }
+        return newSentence;
+    }
 }
-
-
-
