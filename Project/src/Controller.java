@@ -20,6 +20,7 @@ public class Controller {
     @FXML
     private RadioButton choice4;
     private int currentRadioButtonIndex;
+    QuizClass quizClass = new QuizClass();
 
 
     @FXML
