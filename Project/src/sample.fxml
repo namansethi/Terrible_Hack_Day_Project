@@ -1,24 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller">
     <children>
-        <Label fx:id="title" text="1.Are you not pregnant?">
+        <Label fx:id="title" text="1. Are you not pregnant?">
             <VBox.margin>
-                <Insets top="60.0" />
+                <Insets left="30.0" top="30.0" />
             </VBox.margin>
+         <font>
+            <Font size="48.0" />
+         </font>
         </Label>
         <RadioButton fx:id="choice1" mnemonicParsing="false" text="Yes">
             <VBox.margin>
-                <Insets top="30.0" />
+                <Insets left="30.0" top="15.0" />
             </VBox.margin>
+         <font>
+            <Font size="36.0" />
+         </font>
         </RadioButton>
-        <RadioButton fx:id="choice2" mnemonicParsing="false" text="No" />
-        <RadioButton fx:id="choice3" mnemonicParsing="false" text="RadioButton" />
-        <RadioButton fx:id="choice4" mnemonicParsing="false" text="Are you?" />
+        <RadioButton fx:id="choice2" mnemonicParsing="false" text="No">
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+         <font>
+            <Font size="36.0" />
+         </font></RadioButton>
+        <RadioButton fx:id="choice3" mnemonicParsing="false" text="Are you not?">
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+         <font>
+            <Font size="36.0" />
+         </font></RadioButton>
+        <RadioButton fx:id="choice4" mnemonicParsing="false" text="Are you?">
+         <VBox.margin>
+            <Insets left="30.0" />
+         </VBox.margin>
+         <font>
+            <Font size="36.0" />
+         </font></RadioButton>
+      <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="155.0" text="Next Question">
+         <VBox.margin>
+            <Insets left="350.0" />
+         </VBox.margin></Button>
     </children>
 </VBox>
