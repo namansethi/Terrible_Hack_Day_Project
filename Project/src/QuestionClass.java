@@ -1,9 +1,25 @@
 public class QuestionClass {
-    public String question;
-    public String[] answers = new String[4];
+    private String question;
+    private String[] answers;
 
     public QuestionClass() {
-        question = null;
-        answers= new String[4];
+        this.question = null;
+        this.answers= new String[4];
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public String[] getAnswers() {
+        return answers;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public void setAnswers(String[] answers) {
+        this.answers = answers;
     }
 }
