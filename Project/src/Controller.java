@@ -24,7 +24,8 @@ public class Controller {
     @FXML
     private Button nextQuestionButton;
     private int currentRadioButtonIndex;
-   // QuizClass quizClass = new QuizClass();
+
+    QuizClass quizClass = new QuizClass();
 
 
     @FXML
