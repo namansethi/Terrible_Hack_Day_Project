@@ -6,9 +6,9 @@ public class QuizClass{
     private DictionaryClass questionsDict;
     private DictionaryClass answersDict;
     private DictionaryClass resultsDict;
-    public String quizTitle;
-    public QuestionClass[] quizQuestions;
-    public String[] quizResults;
+    private String quizTitle;
+    private QuestionClass[] quizQuestions;
+    private String[] quizResults;
 
     public QuizClass() {
         titlesDict = new DictionaryClass("titles.text");
@@ -35,5 +35,17 @@ public class QuizClass{
             currentWord = value.get((int) (Math.random() * value.size()));
         }
         return newSentence;
+    }
+
+    public String getQuizTitle() {
+        return quizTitle;
+    }
+
+    public QuestionClass[] getQuizQuestions() {
+        return quizQuestions;
+    }
+
+    public DictionaryClass getResultsDict() {
+        return resultsDict;
     }
 }
