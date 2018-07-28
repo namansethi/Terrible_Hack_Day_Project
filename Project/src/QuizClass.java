@@ -12,4 +12,30 @@ public class QuizClass {
     Question questNine = new Question();
     Question questTen = new Question();
     Question []allQuestions = {questOne, questTwo, questThree, questFour, questFive, questSix, questSeven, questEight, questNine, questTen};
+
+//    DictionaryClass title = new DictionaryClass();
+//    DictionaryClass questions = new DictionaryClass();
+//    DictionaryClass answer = new DictionaryClass();
+//    DictionaryClass result = new DictionaryClass();
+//
+//
+//    public QuizClass() {
+//    }
+//
+//    public String createSentence(){
+//        String tempSentence;
+//
+//        while (!currentWord.equals(separator)) {
+//            System.out.print(currentWord + " ");
+//
+//            ArrayList<String> value = dict.get(currentWord);
+//
+//            currentWord = value.get((int) (Math.random() * value.size()));
+//        }
+
+//    }
+
 }
+
+
+
