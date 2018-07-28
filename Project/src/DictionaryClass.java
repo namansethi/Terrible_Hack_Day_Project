@@ -1,32 +1,31 @@
-import java.io.*;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.ArrayList;
+import java.io.*;
 
-public class QuestionDictionary {
-    public static void main(String args[]) {
+public class DictionaryClass extends HashMap<String, ArrayList<String>> {
 
-        ArrayList<String> legalFirstWords = new ArrayList<String>();
-        HashMap<String, ArrayList<String>> dict = new HashMap<String, ArrayList<String>>();
-        String separator = "**********";
+    private static String SEPARATOR = "**********";
+    ArrayList<String> legalFirstWords = new ArrayList<String>();
 
+    public DictionaryClass(String fileName) {
         try {
-            BufferedReader file = new BufferedReader(new FileReader("questions.txt"));
+            BufferedReader file = new BufferedReader(new FileReader(fileName));
             String line = null;
 
             while((line = file.readLine()) != null) {
                 line = line.toUpperCase();
-                line = separator + " " + line + " " + separator;
-                line = line.replaceAll("[.?!]+", " $0 " + separator + " ");
+                line = SEPARATOR + " " + line + " " + SEPARATOR;
+                line = line.replaceAll("[.?!]+", " $0 " + SEPARATOR + " ");
                 line = line.replaceAll("[,;:'&|\"$+=-]+", " $0 ");
                 line = line.replaceAll("[\"(\\[{)\\]}]+", " ");
                 String[] words = line.split("\\s+");
                 for(int i=0; i<words.length-1; i++) {
-                    if (!(words[i].equals(separator) && words[i+1].equals(separator))) {
-                        if (words[i].equals(separator)) legalFirstWords.add(words[i+1]);
+                    if (!(words[i].equals(SEPARATOR) && words[i+1].equals(SEPARATOR))) {
+                        if (words[i].equals(SEPARATOR)) legalFirstWords.add(words[i+1]);
                         else {
                             String newKey = words[i];
-                            if (!dict.containsKey(newKey)) dict.put(newKey, new ArrayList<String>());
-                            dict.get(newKey).add(words[i+1]);
+                            if (!this.containsKey(newKey)) this.put(newKey, new ArrayList<String>());
+                            this.get(newKey).add(words[i+1]);
                         }
                     }
                 }
@@ -40,13 +39,12 @@ public class QuestionDictionary {
 
         String currentWord = legalFirstWords.get((int)(Math.random()*legalFirstWords.size()));
 
-        while (!currentWord.equals(separator)) {
+        while (!currentWord.equals(SEPARATOR)) {
             System.out.print(currentWord + " ");
 
-            ArrayList<String> value = dict.get(currentWord);
+            ArrayList<String> value = this.get(currentWord);
 
             currentWord = value.get((int) (Math.random() * value.size()));
         }
-
     }
 }
