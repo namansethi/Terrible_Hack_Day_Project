@@ -31,7 +31,6 @@ public class Controller {
     }
 
     private List<RadioButton> allocateRadioButtonsToList(List<RadioButton> list, RadioButton choice1, RadioButton choice2, RadioButton choice3, RadioButton choice4) {
-        list = allocateRadioButtonsToList(list,choice1,choice2,choice3,choice4);
         list.add(choice1);
         list.add(choice2);
         list.add(choice3);
