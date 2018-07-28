@@ -46,7 +46,7 @@
          <font>
             <Font size="36.0" />
          </font></RadioButton>
-      <Button mnemonicParsing="false" prefHeight="39.0" prefWidth="155.0" text="Next Question">
+      <Button fx:id="nextQuestionButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="155.0" text="Next Question">
          <VBox.margin>
             <Insets left="350.0" />
          </VBox.margin></Button>
