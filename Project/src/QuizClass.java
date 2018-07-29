@@ -9,6 +9,7 @@ public class QuizClass{
     private String quizTitle;
     private QuestionClass[] quizQuestions;
     private String[] quizResults;
+    private int topResult;
 
     public QuizClass() {
         titlesDict = new DictionaryClass("titles.txt");
@@ -49,4 +50,17 @@ public class QuizClass{
     public DictionaryClass getResultsDict() {
         return resultsDict;
     }
+
+    public double calculateScore(int[] choiceNumber){
+        int sumScore = 0;
+        Double percentageScore = 0.0;
+        for(int i = 0; i<10; i++){
+            sumScore = sumScore + choiceNumber[i];
+        }
+        //if (sumScore < topResult) {
+            percentageScore = 100 - (Math.abs(topResult - sumScore)*2.56);
+        //}
+            return percentageScore;
+    }
+
 }
