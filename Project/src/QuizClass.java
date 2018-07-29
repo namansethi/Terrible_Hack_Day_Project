@@ -4,7 +4,7 @@ public class QuizClass{
 
     private DictionaryClass titlesDict;
     private DictionaryClass questionsDict;
-    private DictionaryClass answersDict;
+    private DictionaryClass choicesDict;
     private DictionaryClass resultsDict;
     private String quizTitle;
     private QuestionClass[] quizQuestions;
@@ -13,7 +13,7 @@ public class QuizClass{
     public QuizClass() {
         titlesDict = new DictionaryClass("titles.txt");
         questionsDict = new DictionaryClass("questions.txt");
-        answersDict = new DictionaryClass("answers.txt");
+        choicesDict = new DictionaryClass("answers.txt");
         resultsDict = new DictionaryClass("results.txt");
 
         quizTitle = generateSentenceFrom(titlesDict);
@@ -22,7 +22,7 @@ public class QuizClass{
             quizQuestions[i] = new QuestionClass();
             quizQuestions[i].setQuestion(generateSentenceFrom(questionsDict));
             for(int k=0; k<4; k++) {
-                quizQuestions[i].getAnswers()[k] = generateSentenceFrom(answersDict);
+                quizQuestions[i].getChoices()[k] = generateSentenceFrom(choicesDict);
             }
         }
     }
