@@ -12,6 +12,7 @@ public class QuizClass{
     private int topResult;
 
     public QuizClass() {
+        //topResult = (int)Math.random()*40;
         titlesDict = new DictionaryClass("titles.txt");
         questionsDict = new DictionaryClass("questions.txt");
         answersDict = new DictionaryClass("choices.txt");
@@ -53,14 +54,15 @@ public class QuizClass{
 
     public double calculateScore(int[] choiceNumber){
         int sumScore = 0;
-        Double percentageScore = 0.0;
+        int percentageScore = 0;
         for(int i = 0; i<10; i++){
             sumScore = sumScore + choiceNumber[i];
         }
         //if (sumScore < topResult) {
-            percentageScore = 100 - (Math.abs(topResult - sumScore)*2.56);
+            //percentageScore = 100 - (Math.abs(sumScore - topResult));
         //}
-            return percentageScore;
+        percentageScore = (int)Math.random()*100;
+        return percentageScore;
     }
 
 }

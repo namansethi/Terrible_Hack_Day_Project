@@ -54,6 +54,7 @@
          </font></RadioButton>
       <ButtonBar prefHeight="40.0" prefWidth="200.0">
         <buttons>
+            <Label fx:id="resultLabel" text="Score" />
             <Button fx:id="previousQuestionButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="155.0" text="Previous Question" />
             <Button fx:id="nextQuestionButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="155.0" text="Next Question" />
         </buttons>

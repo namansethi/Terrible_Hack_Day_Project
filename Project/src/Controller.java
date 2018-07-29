@@ -23,6 +23,8 @@ public class Controller {
     @FXML
     private Button nextQuestionButton;
     @FXML
+    private Label resultLabel;
+    @FXML
     private Button previousQuestionButton;
     private int currentQuestionNumber=0;
     private int selectedChoice;
@@ -33,11 +35,13 @@ public class Controller {
 
     @FXML
     public void initialize() {
+        resultLabel.setText("");
+        this.answerArray = new int[10];
         List<RadioButton> list = new ArrayList<>();
         list = allocateRadioButtonsToList(list,choice1,choice2,choice3,choice4);
         attachListenersToRadioButtons(list);
         nextQuestionButton.setOnAction((event) -> {
-                loadNextQuestion(titleLabel,questionLabel,choice1,choice2,choice3,choice4);
+                loadNextQuestion(titleLabel,questionLabel,choice1,choice2,choice3,choice4,resultLabel);
 
         });
         previousQuestionButton.setOnAction((event) -> {
@@ -70,7 +74,8 @@ public class Controller {
 
             currentRadioButton.selectedProperty().addListener((obs, wasPreviouslySelected, isNowSelected) -> {
                 if (isNowSelected) {
-                    selectedChoice = currentRadioButton.getId().indexOf(6)-1;
+                    selectedChoice = (int)(currentRadioButton.getId().toCharArray()[6]);
+                    System.out.println(currentRadioButton.getId().toCharArray()[6]);
                     limitSelection(list,currentRadioButton);
                 }
             });
@@ -90,15 +95,24 @@ public class Controller {
 
 
     }
-    private void loadNextQuestion(Label titleLabel, Label questionLabel, RadioButton choice1, RadioButton choice2, RadioButton choice3, RadioButton choice4) {
+    private void loadNextQuestion(Label titleLabel, Label questionLabel, RadioButton choice1, RadioButton choice2, RadioButton choice3, RadioButton choice4, Label resultLabel) {
         titleLabel.setText(quizClass.getQuizTitle());
 
+
+        answerArray[counter] = selectedChoice;
+        counter++;
         currentQuestionNumber++;
         questionLabel.setText(quizClass.getQuizQuestions()[currentQuestionNumber].getQuestion());
         choice1.setText(quizClass.getQuizQuestions()[currentQuestionNumber].getChoices()[0]);
         choice2.setText(quizClass.getQuizQuestions()[currentQuestionNumber].getChoices()[1]);
         choice3.setText(quizClass.getQuizQuestions()[currentQuestionNumber].getChoices()[2]);
         choice4.setText(quizClass.getQuizQuestions()[currentQuestionNumber].getChoices()[3]);
+
+        if(currentQuestionNumber==9){
+
+            //resultLabel.setText(Double.toString(quizClass.calculateScore(answerArray)));
+            resultLabel.setText(Integer.toString((int)(Math.random()*100)) + "%");
+        }
     }
     private void loadPreviousQuestion(Label titleLabel, Label questionLabel, RadioButton choice1, RadioButton choice2, RadioButton choice3, RadioButton choice4) {
 
