@@ -22,7 +22,7 @@ public class QuizClass{
             quizQuestions[i] = new QuestionClass();
             quizQuestions[i].setQuestion(generateSentenceFrom(questionsDict));
             for(int k=0; k<4; k++) {
-                quizQuestions[i].getAnswers()[k] = generateSentenceFrom(answersDict);
+                quizQuestions[i].getChoices()[k] = generateSentenceFrom(answersDict);
             }
         }
     }
