@@ -14,7 +14,7 @@ public class QuizClass{
     public QuizClass() {
         titlesDict = new DictionaryClass("titles.txt");
         questionsDict = new DictionaryClass("questions.txt");
-        answersDict = new DictionaryClass("answers.txt");
+        answersDict = new DictionaryClass("choices.txt");
         resultsDict = new DictionaryClass("results.txt");
 
         quizTitle = generateSentenceFrom(titlesDict);
